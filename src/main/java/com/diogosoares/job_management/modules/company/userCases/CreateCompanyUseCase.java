@@ -5,8 +5,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.diogosoares.job_management.exceptions.UserFoundException;
-import com.diogosoares.job_management.modules.company.CompanyEntity;
-import com.diogosoares.job_management.modules.company.CompanyRepository;
+import com.diogosoares.job_management.modules.company.entities.CompanyEntity;
+import com.diogosoares.job_management.modules.company.repositories.CompanyRepository;
 
 @Service
 public class CreateCompanyUseCase {

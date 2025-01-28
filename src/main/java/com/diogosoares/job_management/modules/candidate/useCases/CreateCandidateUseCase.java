@@ -5,8 +5,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.diogosoares.job_management.exceptions.UserFoundException;
-import com.diogosoares.job_management.modules.candidate.CandidateEntity;
-import com.diogosoares.job_management.modules.candidate.CandidateRepository;
+import com.diogosoares.job_management.modules.candidate.entities.CandidateEntity;
+import com.diogosoares.job_management.modules.candidate.repositories.CandidateRepository;
 
 @Service
 public class CreateCandidateUseCase {

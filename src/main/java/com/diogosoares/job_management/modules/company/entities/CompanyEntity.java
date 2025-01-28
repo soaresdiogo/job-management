@@ -1,4 +1,4 @@
-package com.diogosoares.job_management.modules.company;
+package com.diogosoares.job_management.modules.company.entities;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

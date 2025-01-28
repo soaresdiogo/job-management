@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.diogosoares.job_management.modules.company.CompanyEntity;
+import com.diogosoares.job_management.modules.company.entities.CompanyEntity;
 import com.diogosoares.job_management.modules.company.userCases.CreateCompanyUseCase;
 
 import jakarta.validation.Valid;

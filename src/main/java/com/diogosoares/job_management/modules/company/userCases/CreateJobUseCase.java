@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.diogosoares.job_management.exceptions.CompanyNotFoundException;
-import com.diogosoares.job_management.modules.company.CompanyRepository;
-import com.diogosoares.job_management.modules.company.JobEntity;
-import com.diogosoares.job_management.modules.company.JobRepository;
+import com.diogosoares.job_management.modules.company.entities.JobEntity;
+import com.diogosoares.job_management.modules.company.repositories.CompanyRepository;
+import com.diogosoares.job_management.modules.company.repositories.JobRepository;
 
 @Service
 public class CreateJobUseCase {

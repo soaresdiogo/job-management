@@ -3,7 +3,7 @@ package com.diogosoares.job_management.modules.candidate.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.diogosoares.job_management.modules.candidate.CandidateEntity;
+import com.diogosoares.job_management.modules.candidate.entities.CandidateEntity;
 import com.diogosoares.job_management.modules.candidate.useCases.CreateCandidateUseCase;
 
 import jakarta.validation.Valid;
