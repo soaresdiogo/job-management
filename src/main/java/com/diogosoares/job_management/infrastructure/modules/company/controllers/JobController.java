@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,13 @@ import com.diogosoares.job_management.domain.modules.company.userCases.CreateJob
 import com.diogosoares.job_management.domain.modules.company.userCases.ListAllJobsByCompanyUseCase;
 import com.diogosoares.job_management.infrastructure.modules.company.dto.CreateJobDTO;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
@@ -29,6 +37,15 @@ public class JobController {
     private ListAllJobsByCompanyUseCase listAllJobsByCompanyUseCase;
 
     @PostMapping("/")
+    @PreAuthorize("hasRole('COMPANY')")
+    @Tag(name = "Jobs", description = "Jobs Information")
+    @Operation(summary = "Job registration", description = "This endpoint is responsible for registering a new job")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {
+                    @Content(schema = @Schema(implementation = JobEntity.class))
+            })
+    })
+    @SecurityRequirement(name = "jwt_auth")
     public ResponseEntity<Object> create(@Valid @RequestBody CreateJobDTO createJobDTO, HttpServletRequest request) {
         var companyId = request.getAttribute("company_id");
 
@@ -48,6 +65,15 @@ public class JobController {
     }
 
     @GetMapping("/")
+    @PreAuthorize("hasRole('COMPANY')")
+    @Tag(name = "Jobs", description = "List of Jobs")
+    @Operation(summary = "List of Jobs", description = "This endpoint is responsible for listing the jobs of the company")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {
+                    @Content(schema = @Schema(implementation = JobEntity.class))
+            })
+    })
+    @SecurityRequirement(name = "jwt_auth")
     public ResponseEntity<Object> listByCompany(HttpServletRequest request){
         var companyId = request.getAttribute("company_id");
         var result = this.listAllJobsByCompanyUseCase.execute(UUID.fromString(companyId.toString()));

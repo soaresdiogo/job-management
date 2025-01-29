@@ -16,6 +16,7 @@ A robust Spring Boot application built with Clean Architecture principles, incor
 - [Spring Validation](https://spring.io/guides/gs/validating-form-input/) - Input Validation
 - [Spring DevTools](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools) - Development Tools
 - [Swagger](https://swagger.io/) - API Documentation
+- [Sonar Qube](https://www.sonarsource.com/products/sonarqube/) - High-Quality Code
 
 ## 🏗️ Architecture
 
@@ -82,6 +83,14 @@ Run tests using:
 
 ```bash
 ./mvnw test
+```
+
+## 🧪 Sonar
+
+Run Sonar Qube using:
+
+```bash
+docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:9.9.0-community
 ```
 
 ## 🔧 Development Features
